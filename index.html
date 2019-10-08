@@ -3,9 +3,20 @@
 <head>
     <meta charset="utf-8">
     <script>
-        // TODO: create a handler
+        let engines = {
+            "google": "https://www.google.com/search",
+            "duckduckgo": "https://duckduckgo.com",
+            "bing": "https://www.bing.com/search",
+            "ask": "https://www.ask.com/web"
+        };
+
+        function setSearchEngine() {
+            let searchEngine = document.querySelector("input[name=engine]:checked");
+            document.getElementById("searchForm").setAttribute("action", engines[searchEngine]);
+        }
         window.addEventListener("load", function() {
-            // TODO: register the handler
+            let goButton = document.getElementById('go');
+            setSearchEngine();
         });
     </script>
 </head>
@@ -15,11 +26,11 @@
     <form id="searchForm">
         <fieldset>
             <input name="q">
-            <label for="google">Google<input type="radio" name="engine"></label>
-            <label for="duckDuckGo">DuckDuckGo<input type="radio" name="engine"></label>
-            <label for="bing">Bing<input type="radio" name="engine"></label>
-            <label for="ask">Ask<input type="radio" name="engine"></label>
-            <button>Go!</button>
+            <label for="google">Google<input type="radio" name="engine" value="google"></label>
+            <label for="duckDuckGo">DuckDuckGo<input type="radio" name="engine" value="duckduckgo"></label>
+            <label for="bing">Bing<input type="radio" name="engine" value="bing"></label>
+            <label for="ask">Ask<input type="radio" name="engine" value="ask"></label>
+            <button id="go" value="Go!">Go!</button>
         </fieldset>
     </form>
 
