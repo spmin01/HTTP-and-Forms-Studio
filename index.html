@@ -10,14 +10,23 @@
             "ask": "https://www.ask.com/web"
         };
 
-        function setSearchEngine() {
-            let searchEngine = document.querySelector("input[name=engine]:checked");
+        function setSearchEngine(searchEngine) {
             document.getElementById("searchForm").setAttribute("action", engines[searchEngine.value]);
         }
         window.addEventListener("load", function() {
             let goButton = document.getElementById('go');
+            let input = null;
+
             goButton.addEventListener("click", function() {
-                setSearchEngine();
+                input = document.querySelector("input[name=q]");
+                let searchEngine = document.querySelector("input[name=engine]:checked");
+                if (input.value === '' || searchEngine === null) {
+                    alert("Please enter a query and select an engine");
+                    event.preventDefault();
+                } else {
+                    setSearchEngine(searchEngine);
+                }
+
             });
         });
     </script>
