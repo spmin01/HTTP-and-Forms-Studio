@@ -14,9 +14,9 @@
             document.getElementById("searchForm").setAttribute("action", engines[searchEngine.value]);
         }
         window.addEventListener("load", function() {
-            let goButton = document.getElementById('go');
+            let form = document.getElementById('searchForm');
 
-            goButton.addEventListener("click", function() {
+            form.addEventListener("submit", function() {
                 let input = document.querySelector("input[name=q]");
                 let searchEngine = document.querySelector("input[name=engine]:checked");
                 if (input.value === '' || searchEngine === null) {
