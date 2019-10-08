@@ -15,10 +15,9 @@
         }
         window.addEventListener("load", function() {
             let goButton = document.getElementById('go');
-            let input = null;
 
             goButton.addEventListener("click", function() {
-                input = document.querySelector("input[name=q]");
+                let input = document.querySelector("input[name=q]");
                 let searchEngine = document.querySelector("input[name=engine]:checked");
                 if (input.value === '' || searchEngine === null) {
                     alert("Please enter a query and select an engine");
@@ -30,11 +29,20 @@
             });
         });
     </script>
+
+    <style>
+        .searchForm {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
+
 </head>
 
 <body>
 
-    <form id="searchForm">
+    <form id="searchForm" class="searchForm">
         <fieldset>
             <input name="q">
             <label for="google">Google<input type="radio" name="engine" value="google"></label>
