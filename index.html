@@ -12,11 +12,13 @@
 
         function setSearchEngine() {
             let searchEngine = document.querySelector("input[name=engine]:checked");
-            document.getElementById("searchForm").setAttribute("action", engines[searchEngine]);
+            document.getElementById("searchForm").setAttribute("action", engines[searchEngine.value]);
         }
         window.addEventListener("load", function() {
             let goButton = document.getElementById('go');
-            setSearchEngine();
+            goButton.addEventListener("click", function() {
+                setSearchEngine();
+            });
         });
     </script>
 </head>
